@@ -60,6 +60,7 @@ const (
 	PhotoUploaded                    = "PhotoUploaded"
 	PhotoURL                         = "PhotoURL"
 	CanUploadPhoto                   = "CanUploadPhoto"
+	Supervisor                       = "supervisor"
 )
 
 // Employee represents a single person
@@ -82,6 +83,7 @@ type Employee struct {
 	PhotoUploaded      *bool // to avoid false when it's empty
 	PhotoURL           string
 	CanUploadPhoto     *int // to avoid 0 when it's empty
+	Supervisor         string
 }
 
 // GetEmployeeDirectory returns a list of employees
@@ -101,7 +103,7 @@ func (c *Client) GetEmployeeDirectory(ctx context.Context) ([]Employee, error) {
 
 // GetEmployee retrieves a specific employee by ID and allows the caller to specify fields.
 // All fields are returned if none are specified.
-func (c *Client) GetEmployee(ctx context.Context, id string, fields ...EmployeeField) (Employee, error) {
+func (c *Client) GetEmployee(ctx context.Context, id string, onlyCurrent bool, fields ...EmployeeField) (Employee, error) {
 	var employee Employee
 	url := fmt.Sprintf("%s/employees/%s", c.BaseURL, id)
 	req, err := http.NewRequest("GET", url, nil)
@@ -117,6 +119,7 @@ func (c *Client) GetEmployee(ctx context.Context, id string, fields ...EmployeeF
 	}
 	q := req.URL.Query()
 	q.Add("fields", ef.Join(","))
+	q.Add("onlyCurrent", fmt.Sprintf("%t", onlyCurrent))
 	req.URL.RawQuery = q.Encode()
 	req = req.WithContext(ctx)
 	if err := c.makeRequest(req, &employee); err != nil {
