@@ -1,8 +1,10 @@
 # Bamboo HR Go Library 
 
-[![GoDoc](https://godoc.org/github.com/darrenparkinson/bamboohr?status.svg)](https://godoc.org/github.com/darrenparkinson/bamboohr)
-[![PkgGoDev](https://pkg.go.dev/badge/darrenparkinson/bamboohr)](https://pkg.go.dev/github.com/darrenparkinson/bamboohr)
-[![Go Report Card](https://goreportcard.com/badge/github.com/darrenparkinson/bamboohr)](https://goreportcard.com/report/github.com/darrenparkinson/bamboohr)
+[![GoDoc](https://godoc.org/github.com/rk295/bamboohr?status.svg)](https://godoc.org/github.com/rk295/bamboohr)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rk295/bamboohr)](https://goreportcard.com/report/github.com/rk295/bamboohr)
+
+> This was originally forked from [darrenparkinson/bamboohr](https://github.com/darrenparkinson/bamboohr) but has seen a few updates since then. The original project appears to be unmaintained.
+
 
 This is a simple Go library to utilise the [Bamboo HR API](https://documentation.bamboohr.com/docs).
 
@@ -10,7 +12,7 @@ This is a simple Go library to utilise the [Bamboo HR API](https://documentation
 
 To get the library, simply:
 
-> `go get github.com/darrenparkinson/bamboohr`
+> `go get github.com/rk295/bamboohr`
 
 
 ## Using the Library
@@ -30,7 +32,7 @@ import (
     "log"
     "os"
 
-    "github.com/darrenparkinson/bamboohr"
+    "github.com/rk295/bamboohr"
 )
 
 func main() {
@@ -66,7 +68,7 @@ This will likely return a `context deadline exceeded` error since the request wi
 ## Documentation
 
 There is an online reference for the package at
-[godoc.org/github.com/darrenparkinson/bamboohr][godoc-bamboohr].
+[godoc.org/github.com/rk295/bamboohr][godoc-bamboohr].
 
 Bamboo HR Documentation is available [on their site](https://documentation.bamboohr.com/docs).
 
